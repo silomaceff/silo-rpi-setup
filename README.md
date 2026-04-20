@@ -30,12 +30,8 @@ Turn a fresh Raspberry Pi into a farm automation assistant with voice input/outp
 2. Internet connection
 3. [Claude Code](https://claude.ai/code) installed and authenticated:
    ```bash
-   # Install Node.js
-   curl -fsSL https://deb.nodesource.com/setup_22.x | sudo bash -
-   sudo apt install -y nodejs
-
-   # Install Claude Code
-   sudo npm install -g @anthropic-ai/claude-code
+   # Install Claude Code (bundled installer — no Node.js required)
+   curl -fsSL https://claude.ai/install.sh | bash
 
    # Authenticate (opens browser)
    claude
