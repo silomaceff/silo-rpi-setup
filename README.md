@@ -174,7 +174,7 @@ Voice models at `~/.local/share/piper/`. Browse more at [rhasspy/piper-voices](h
 ## Deep Dive
 
 For the full first-principles tutorial explaining every step and why, see:
-[rpi500_silo_setup.md](https://gist.github.com/silomaceff/35e730e5dd03060b01561b7a9dcaa0bf)
+[rpi500_silo_setup.md](https://gist.github.com/silomaceff-d0cdcf/45e049f74cb6ee6a0d3ac0903e6272ae)
 
 ## Introducing Your Agent
 
@@ -189,7 +189,7 @@ See **[AGENT_INTRODUCTION_GUIDE.md](AGENT_INTRODUCTION_GUIDE.md)** for a complet
 | [README.md](README.md) | Quick start (this file) |
 | [AGENT_INTRODUCTION_GUIDE.md](AGENT_INTRODUCTION_GUIDE.md) | How to seed agent memory with your context |
 | [SECURITY.md](SECURITY.md) | OPSEC warnings, risks, indemnification |
-| [Deep-dive tutorial](https://gist.github.com/silomaceff/35e730e5dd03060b01561b7a9dcaa0bf) | First-principles walkthrough explaining every step |
+| [Deep-dive tutorial](https://gist.github.com/silomaceff-d0cdcf/45e049f74cb6ee6a0d3ac0903e6272ae) | First-principles walkthrough explaining every step |
 | [LICENSE](LICENSE) | MIT License |
 
 ## About
