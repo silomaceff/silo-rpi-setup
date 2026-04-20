@@ -1,6 +1,6 @@
 #!/bin/bash
 # SILO RPi Setup — Batteries-included MacEff agent bootstrap
-# Run: curl -fsSL https://raw.githubusercontent.com/silomaceff/silo-rpi-setup/main/setup.sh | bash
+# Run: curl -fsSL https://raw.githubusercontent.com/silomaceff-d0cdcf/silo-rpi-setup/main/setup.sh | bash
 #
 # Prerequisites:
 #   - Raspberry Pi 500 with RPi OS Bookworm 64-bit

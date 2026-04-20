@@ -101,7 +101,7 @@ If you discover a security vulnerability:
 - **MacEff framework**: File a private security advisory on [cversek/MacEff](https://github.com/cversek/MacEff)
 - **Claude Code**: Report to Anthropic at security@anthropic.com
 - **Telegram plugin**: File a private security advisory on [cversek/MacEff](https://github.com/cversek/MacEff)
-- **This repo**: File an issue on [silomaceff/silo-rpi-setup](https://github.com/silomaceff/silo-rpi-setup)
+- **This repo**: File an issue on [silomaceff-d0cdcf/silo-rpi-setup](https://github.com/silomaceff-d0cdcf/silo-rpi-setup)
 
 ---
 

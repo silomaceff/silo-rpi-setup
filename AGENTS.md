@@ -30,7 +30,7 @@ This file provides context for any agentic AI assistant (Claude Code, Cursor, Co
 ## Code Style
 
 - Shell scripts: `set -euo pipefail`, meaningful variable names, progress output with `[N/M]` step counters
-- Python: Use shebangs pointing to venv interpreters (e.g., `#!/usr/bin/env /home/silo/.venvs/whisper/bin/python3`)
+- Python: Commit scripts with a generic `#!/usr/bin/env python3` shebang. `install-tools.sh` rewrites the installed copy's shebang to point at the user's venv Python at install time (see `SILO_WHISPER_PYTHON` env override).
 - Config files: Plain text or simple JSON. Farmers should be able to edit them with any text editor.
 - Idempotent: Scripts should be safe to re-run without breaking anything
 

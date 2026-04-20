@@ -1,6 +1,8 @@
 #!/bin/bash
-# SILO Telegram Channel Setup
-# Run AFTER setup.sh and creating a Telegram bot via @BotFather
+# SILO Telegram Channel Setup — uses the official Anthropic plugin from
+# the claude-plugins-official marketplace (no custom fork required).
+#
+# Run AFTER setup.sh and creating a Telegram bot via @BotFather.
 #
 # Usage: ./setup-telegram.sh YOUR_BOT_TOKEN
 #
@@ -25,8 +27,11 @@ echo "  SILO Telegram Channel Setup"
 echo "========================================="
 echo ""
 
-# --- Install Bun ---
-echo "[1/4] Installing Bun runtime..."
+# --- [1/3] Install Bun ---
+# Bun is the JS/TS runtime the official plugin's server.ts uses at run time.
+# The plugin itself is installed by Claude Code via /plugin install telegram,
+# so we don't need to clone or bun-install any plugin source here.
+echo "[1/3] Installing Bun runtime..."
 if command -v bun &>/dev/null; then
     echo "  Bun already installed ($(bun --version))"
 else
@@ -36,28 +41,18 @@ else
     echo "  Bun installed ($(bun --version))"
 fi
 
-# --- Install plugin dependencies ---
-echo "[2/4] Installing MacEff Telegram plugin dependencies..."
-PLUGIN_DIR="$HOME/gitwork/cversek/MacEff/plugins/telegram"
-if [ ! -d "$PLUGIN_DIR" ]; then
-    echo "  Error: MacEff not found. Run setup.sh first."
-    exit 1
-fi
-(cd "$PLUGIN_DIR" && bun install --no-summary)
-echo "  Done."
-
-# --- Save token ---
-echo "[3/4] Saving bot token..."
+# --- [2/3] Save bot token ---
+echo "[2/3] Saving bot token..."
 mkdir -p ~/.claude/channels/telegram
 echo "TELEGRAM_BOT_TOKEN=$TOKEN" > ~/.claude/channels/telegram/.env
 chmod 600 ~/.claude/channels/telegram/.env
-echo "  Token saved (chmod 600)."
+echo "  Token saved at ~/.claude/channels/telegram/.env (chmod 600)."
 
-# --- Add launch alias ---
-echo "[4/4] Configuring launch alias..."
+# --- [3/3] Add launch alias ---
+echo "[3/3] Configuring launch alias..."
 if ! grep -q "launch_silo" ~/.bashrc 2>/dev/null; then
     echo "" >> ~/.bashrc
-    echo "# MacEff: Launch Silo with Telegram channel" >> ~/.bashrc
+    echo "# MacEff: Launch Silo with Telegram channel (official plugin)" >> ~/.bashrc
     echo "alias launch_silo='claude --channels plugin:telegram@claude-plugins-official -c'" >> ~/.bashrc
     echo "  Added launch_silo alias to .bashrc"
 else
@@ -68,16 +63,13 @@ echo ""
 echo "========================================="
 echo "  Telegram setup complete!"
 echo ""
-echo "  Next steps:"
-echo "  1. Launch: claude --channels plugin:telegram@claude-plugins-official"
-echo "     (or source ~/.bashrc && launch_silo)"
-echo "  2. In session: /plugin (install telegram)"
-echo "  3. /reload-plugins"
-echo "  4. Copy custom server:"
-echo "     cp $PLUGIN_DIR/server.ts \\"
-echo "        ~/.claude/plugins/marketplaces/claude-plugins-official/external_plugins/telegram/server.ts"
-echo "  5. /mcp (reconnect)"
-echo "  6. Send message to bot from phone"
-echo "  7. /telegram:access pair <code>"
-echo "  8. /telegram:access policy allowlist"
+echo "  Next steps — in a Claude Code session:"
+echo "  1. Launch:    claude --channels plugin:telegram@claude-plugins-official"
+echo "                (or 'source ~/.bashrc && launch_silo' after first run)"
+echo "  2. /plugin install telegram   # pulls the latest official version"
+echo "  3. /reload-plugins            # register the MCP server"
+echo "  4. /mcp                       # confirm telegram MCP is connected"
+echo "  5. Send your first message to the bot from your phone"
+echo "  6. /telegram:access pair <code>"
+echo "  7. /telegram:access policy allowlist"
 echo "========================================="

@@ -40,7 +40,7 @@ Turn a fresh Raspberry Pi into a farm automation assistant with voice input/outp
 ### Step 1: Run Setup Script
 
 ```bash
-git clone https://github.com/silomaceff/silo-rpi-setup.git
+git clone https://github.com/silomaceff-d0cdcf/silo-rpi-setup.git
 cd silo-rpi-setup
 chmod +x setup.sh
 ./setup.sh
@@ -95,17 +95,12 @@ claude --channels plugin:telegram@claude-plugins-official -c
 ```
 
 Then in the Claude Code session:
-1. `/plugin` → install telegram
-2. `/reload-plugins`
-3. Copy the MacEff custom server over the official plugin:
-   ```bash
-   cp ~/gitwork/cversek/MacEff/plugins/telegram/server.ts \
-      ~/.claude/plugins/marketplaces/claude-plugins-official/external_plugins/telegram/server.ts
-   ```
-4. `/mcp` → reconnect to telegram
-5. Send a message to your bot from your phone
-6. Pair: `/telegram:access pair <code>`
-7. Lock down: `/telegram:access policy allowlist`
+1. `/plugin install telegram` — pulls the latest official plugin from `claude-plugins-official`
+2. `/reload-plugins` — register the plugin's MCP server
+3. `/mcp` — confirm the telegram MCP is connected
+4. Send a message to your bot from your phone
+5. Pair: `/telegram:access pair <code>`
+6. Lock down: `/telegram:access policy allowlist`
 
 After first setup, just use: `launch_silo`
 
